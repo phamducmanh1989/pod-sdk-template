@@ -21,22 +21,24 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/${USER_NAME}/${POD_NAME}'
+  s.homepage         = 'https://phamducmanh1989@github.com/phamducmanh1989/${POD_NAME}'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '${USER_NAME}' => '${USER_EMAIL}' }
-  s.source           = { :git => 'https://github.com/${USER_NAME}/${POD_NAME}.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Manh Pham' => 'phamducmanh1989@gmail.com' }
+  s.source           = { :git => 'https://phamducmanh1989@github.com/phamducmanh1989/${POD_NAME}.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-
-  s.source_files = '${POD_NAME}/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   '${POD_NAME}' => ['${POD_NAME}/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.public_header_files = [
+  ]
+  s.source_files = '${POD_NAME}/Classes/**/*.{h,m}'
+  s.subspec '${POD_NAME}SubSpec' do |sub_spec|
+      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'   
+  end
+  s.static_framework = true
+  s.default_subspec = '${POD_NAME}SubSpec'
+  s.resources = ['${POD_NAME}/Assets/*.png', '${POD_NAME}/Assets/*.bundle']
+  s.resource_bundles = {
+        '${POD_NAME}' => ['${POD_NAME}/Assets/*.png', '${POD_NAME}/Assets/*.bundle']
+    }
+    s.prefix_header_contents =  '#import <ReactiveObjC/ReactiveObjC.h>'
 end
