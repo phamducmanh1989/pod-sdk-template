@@ -32,7 +32,8 @@ TODO: Add long description of the pod here.
   ]
   s.source_files = '${POD_NAME}/Classes/**/*.{h,m}'
   s.subspec '${POD_NAME}SubSpec' do |sub_spec|
-      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'   
+      sub_spec.dependency 'ReactiveObjC', '~>2.1.2'
+      sub_spec.dependency 'MPCore', '0.1.9'   
   end
   s.static_framework = true
   s.default_subspec = '${POD_NAME}SubSpec'
@@ -40,5 +41,6 @@ TODO: Add long description of the pod here.
   s.resource_bundles = {
         '${POD_NAME}' => ['${POD_NAME}/Assets/*.png', '${POD_NAME}/Assets/*.bundle']
     }
-    s.prefix_header_contents =  '#import <ReactiveObjC/ReactiveObjC.h>'
+    s.prefix_header_contents =  '#import <ReactiveObjC/ReactiveObjC.h>',
+    '#import <MPCore/MPCore.h>'
 end
