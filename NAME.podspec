@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = '${POD_NAME}/Classes/**/*.{h,m}'
   s.subspec '${POD_NAME}SubSpec' do |sub_spec|
       sub_spec.dependency 'ReactiveObjC', '~>2.1.2'
-      sub_spec.dependency 'MPCore', '0.1.10'   
+      sub_spec.dependency 'MPCore', '0.1.11'   
   end
   s.static_framework = true
   s.default_subspec = '${POD_NAME}SubSpec'
